@@ -1,14 +1,26 @@
-import React from 'react';
-import './App.css';
-import { HomeScreen } from "./features"
+import React from 'react'
+import {  BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Home, Browse, Signin, Signup } from './pages';
 
-function App() {
+import * as ROUTES from './constants/routes'
+
+export default function App() {
   return (
-    <div className="App">
-      <h1>Lets build netflix</h1>
-      <HomeScreen />
-    </div>
-  );
+    <Router>
+      <Route path="/signin">
+        <Signin />
+      </Route>
+      <Route path="/signup">
+        <Signup />
+      </Route>
+      <Route path="/browse">
+        <Browse />
+      </Route>
+      <Route exact path={ROUTES.HOME}>
+        <Home />
+      </Route>
+    </Router>
+  )
 }
 
-export default App;
+
