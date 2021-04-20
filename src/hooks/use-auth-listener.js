@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react'
-import { UsageState } from 'webpack'
 import { FirebaseContext } from '../context/firebase'
 
 export default function useAuthListener() {
@@ -19,8 +18,8 @@ export default function useAuthListener() {
                 setUser(null);
             }
         });
-
         return () => listener();    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return { user };
