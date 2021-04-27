@@ -15,10 +15,14 @@ export function BrowseContainer({ slides }) {
         }, 3000);
     }, [profile.displayName]);
 
-    return (
+    return
+
         profile.displayName ? (
-            loading ? <Loading src={user.photoURL} /> : null 
-        )
+            loading ? (
+            <Loading src={user.photoURL} /> 
+        )   : null 
+        ) : (
         <SelectProfileContainer user={user} setProfile={setProfile}/>
-    )
+        );
+
 }
