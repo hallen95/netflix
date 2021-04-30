@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as ReactRouterLink } from 'react-router-dom'
-import { Background, Container, Logo, ButtonLink, Feature, Text, FeatureCallOut, Link } from './styles/header'
+import { Background, Group, Picture, Profile, Dropdown, Container, Logo, ButtonLink, Feature, Text, FeatureCallOut, Link } from './styles/header'
 
 export default function Header({bg = true, children, ...restProps}){
     return bg ? <Background {...restProps}>{children}</Background> : children;
@@ -9,12 +9,24 @@ export default function Header({bg = true, children, ...restProps}){
 Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }){
     return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 }
+
+Header.Profile = function HeaderProfile({ children, ...restProps }){
+    return <Profile { ...restProps }>{children}</Profile>
+}
+
+Header.Picture = function HeaderPicture( { src, ...restProps } ){
+    return <Picture {...restProps} src= {`/images/users/${src}.png`} />;
+}
 Header.Feature = function HeaderFeature({ children, ...restProps }){
     return <Feature {...restProps}>{children}</Feature>
 }
 
 Header.Text = function HeaderText({ children, ...restProps }){
     return <Text {...restProps}>{children}</Text>
+}
+
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }){
+    return <Dropdown {...restProps}>{children}</Dropdown>
 }
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }){
