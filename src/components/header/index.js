@@ -24,13 +24,16 @@ Header.Search = function HeaderSearch({searchTerm, setSearchTerm, ...restProps }
 
     return (
         <Search {...restProps}>
-            <SearchIcon onClick={() => (setSearchActive => !searchActive)}>
+            <SearchIcon 
+                onClick={() => setSearchActive((searchActive) => !searchActive)}
+                >
                 <img src="/images/icons/search.png" alt="search" />
             </SearchIcon>
             <SearchInput 
                 value={searchTerm}
                 onChange={({ target }) => setSearchTerm(target.value)}
                 placeholder="Search films and series"
+                // le pasa el valor del state por la propiedad
                 active={searchActive} />
         </Search>
     )

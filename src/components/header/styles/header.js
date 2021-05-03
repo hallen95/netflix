@@ -135,11 +135,15 @@ export const SearchInput = styled.input`
     background-color: #44444459;
     color: white;
     border: 1px solid white;
-    transition: width: 0.5s;
+    transition: all 0.8s;
     height: 30px;
     font-size: 14px;
-    // se desestructura una función dentro de unos brackets lógica
+    // se desestructura la prop del active. Haciendo una funcion dentro.
     margin-left: ${({ active }) => (active === true ? '10px' : '0')};
+    padding: ${({ active }) => (active === true ? '0 10px' : '0')};
+    opacity: ${({ active }) => (active === true ? '1' : '0')};
+    // invalid property value 
+    width: ${({ active }) => (active === true ? '150x' : '0px')};
 `;
 
 
