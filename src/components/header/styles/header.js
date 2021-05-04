@@ -131,11 +131,31 @@ export const SearchIcon = styled.button`
     }
 `;
 
+export const PlayButton = styled.button`
+    box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+    background-color: #e6e6e6;
+    font-weight: bold;
+    color: #000;
+    border-width: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    max-width: 130px;
+    font-size: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color .5s ease;
+
+    &:hover {
+        background-color: #ff1e1e;
+        color: white;
+    }
+`;
+
 export const SearchInput = styled.input`
     background-color: #44444459;
     color: white;
     border: 1px solid white;
-    transition: all 0.8s;
+    transition: width 0.5s;
     height: 30px;
     font-size: 14px;
     // se desestructura la prop del active. Haciendo una funcion dentro.
@@ -143,7 +163,7 @@ export const SearchInput = styled.input`
     padding: ${({ active }) => (active === true ? '0 10px' : '0')};
     opacity: ${({ active }) => (active === true ? '1' : '0')};
     // invalid property value 
-    width: ${({ active }) => (active === true ? '150x' : '0px')};
+    width: ${({ active }) => (active === true ? '200px' : '0px')};
 `;
 
 
@@ -178,7 +198,7 @@ export const ButtonLink = styled(ReactRouterLink)`
     box-sizing: border-box;
 
     &:hover{
-        background-color: #f40612
+        background-color: #f40612;
     }
 `;
 
