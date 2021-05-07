@@ -6,9 +6,12 @@ import * as ROUTES from '../constants/routes'
 import logo from '../logo.svg'
 
 export function BrowseContainer({ slides }) {
+    const [ category, setCategory] = useState('series');
     const [searchTerm, setSearchTerm] = useState('');
     const [ profile, setProfile ] = useState({});
     const [ loading, setLoading ] = useState(true);
+    const [slideRows, setslideRows] = useState([])
+
     const { firebase } = useContext(FirebaseContext);
     const user = firebase.auth().currentUser || {};
     
@@ -17,6 +20,13 @@ export function BrowseContainer({ slides }) {
         setLoading(false); 
         }, 3000);
     }, [profile.displayName]);
+
+    /* esto sirve para determinar cual de los slides va a utilizar el programa
+    dependiendo el que reciba browse->slides va a ir mutando*/
+    useEffect(() => {
+        setslideRows(slides[category]);
+        console.log("slides",slides);
+    }, [slides, category])
 
     return profile.displayName ? (
         <>
@@ -27,8 +37,13 @@ export function BrowseContainer({ slides }) {
             <Header.Frame>
                 <Header.Group>
                     <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-                    <Header.TextLink>Series</Header.TextLink>
-                    <Header.TextLink>Films</Header.TextLink>
+                    <Header.TextLink active={category === 'series' ? 'true' : 'false'} 
+                    onClick={() => setCategory('series')}
+                    >
+                        Series
+                    </Header.TextLink>
+                    <Header.TextLink active={category === 'films' ? 'true' : 'false'} 
+                    onClick={() => setCategory('films')}>Films</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
                     <Header.Search searchTerm={searchTerm} 
@@ -59,7 +74,22 @@ export function BrowseContainer({ slides }) {
         </Header>
 
         <Card.Group>
-            
+            {slideRows.map((slideItem) => (
+                <Card key={`${category}-${slideItem.title.toUpperCase()}`}>
+                    <Card.Title>{slideItem.title}</Card.Title>
+                    <Card.Entities>
+                        {slideItem.data.map((item) => (
+                            <Card.Item key={item.docId} item={item}>
+                                <Card.Image src={`/images/${category}/${item.gnre}/${item.slug}/small.jpg`}/>
+                                <Card.Meta>
+                                    <Card.Subtitle>{item.title}</Card.Subtitle>
+                                    <Card.Text>{item.description}</Card.Text>
+                                </Card.Meta>
+                            </Card.Item>
+                        ))}
+                    </Card.Entities>
+                </Card>
+            ))}
         </Card.Group>
         </>
         ) : (
