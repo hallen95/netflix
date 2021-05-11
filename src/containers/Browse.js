@@ -6,8 +6,8 @@ import * as ROUTES from '../constants/routes'
 import logo from '../logo.svg'
 
 export function BrowseContainer({ slides }) {
-    const [ category, setCategory] = useState('series');
-    const [searchTerm, setSearchTerm] = useState('');
+    const [ category, setCategory ] = useState('series');
+    const [searchTerm, setSearchTerm ] = useState('');
     const [ profile, setProfile ] = useState({});
     const [ loading, setLoading ] = useState(true);
     const [slideRows, setslideRows] = useState([])
@@ -25,14 +25,13 @@ export function BrowseContainer({ slides }) {
     dependiendo el que reciba browse->slides va a ir mutando*/
     useEffect(() => {
         setslideRows(slides[category]);
-        console.log("slides",slides);
     }, [slides, category])
-
     return profile.displayName ? (
         <>
             {loading ? <Loading src={user.photoURL} />   
             : <Loading.ReleaseBody />
             };
+
         <Header src="joker1" dontShowOnSmallViewPort>
             <Header.Frame>
                 <Header.Group>
@@ -62,6 +61,7 @@ export function BrowseContainer({ slides }) {
                     </Header.Profile>
                 </Header.Group>
             </Header.Frame>
+
             <Header.Feature>
                 <Header.FeatureCallOut>Watch Joker Ahorita</Header.FeatureCallOut>
                 <Header.Text>
@@ -75,19 +75,28 @@ export function BrowseContainer({ slides }) {
 
         <Card.Group>
             {slideRows.map((slideItem) => (
-                <Card key={`${category}-${slideItem.title.toUpperCase()}`}>
-                    <Card.Title>{slideItem.title}</Card.Title>
+                <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+                    <Card.Title>
+                        {slideItem.title}
+                    </Card.Title> 
                     <Card.Entities>
                         {slideItem.data.map((item) => (
                             <Card.Item key={item.docId} item={item}>
-                                <Card.Image src={`/images/${category}/${item.gnre}/${item.slug}/small.jpg`}/>
+                                <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}/>
                                 <Card.Meta>
-                                    <Card.Subtitle>{item.title}</Card.Subtitle>
+                                    <Card.SubTitle>{item.title}</Card.SubTitle>
                                     <Card.Text>{item.description}</Card.Text>
                                 </Card.Meta>
                             </Card.Item>
                         ))}
                     </Card.Entities>
+                    <Card.Feature category={category}>
+                        <p>Hola</p>
+                        {/* <Player>
+                            <Player.Button />
+                            <Player.Video src="/video/bunny.mp4" />
+                        </Player> */}
+                    </Card.Feature>
                 </Card>
             ))}
         </Card.Group>
