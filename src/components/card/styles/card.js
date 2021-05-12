@@ -37,7 +37,6 @@ export const Group = styled.div`
     }
 `;
 
-
 export const SubTitle = styled.p`
     font-size: 12px;
     color: #fff;
@@ -59,7 +58,14 @@ export const Text = styled.p`
 `;
 
 export const FeatureText = styled.p`
-    margin-left: 0;
+    font-size: 18px;
+    color: white;
+    font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
+    margin: 0;
+
+    @media (max-width: 600px) {
+        line-height: 22px;
+    }
 `;
 
 export const Feature = styled.div`
@@ -85,7 +91,7 @@ export const Feature = styled.div`
     }
 
     ${FeatureText} {
-        font-size: 14px;
+        font-size: 14px
     }
 
 `;
@@ -104,10 +110,10 @@ export const FeatureClose = styled.button`
     background-color: transparent;
     border: 0;
 
-    img (
-        filter: brightness(0) invert (1);
+    img {
+        filter: brightness(0) invert(1);
         width: 24px;
-    )
+    }
 `;
 
 export const Maturity = styled.div`
@@ -148,7 +154,40 @@ export const Entities = styled.div`
 `;
 
 export const Item = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: transform .2s;
 
+    &:hover{
+        transform: scale(1.3);
+        z-index: 99;
+    }
+
+    @media (min-width: 1200px) {
+        &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
+            display: block;
+            z-index: 100;
+        }
+    }
+
+    &:first-of-type {
+        margin-left: 56px;
+
+        @media (max-width: 1000px) {
+            margin-left: 30px;
+        }
+    }
+
+    &:last-of-type {
+        margin-right: 56px;
+
+        @media (max-width: 1000px) {
+            margin-right: 30px;
+        }
+    }
 `;
 
 export const Image = styled.img`
