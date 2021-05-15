@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export const Container = styled.div``;
 
-export const Overplay = styled = styled.div`
+export const Overlay = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,13 +37,14 @@ export const Close = styled.button`
     background-color: transparent;
     border: 0;
     cursor: pointer;
+    transform: all .2s;
 
     &:hover {
         opacity: 1;
     }
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
         position: absolute;
         left: 10px;
         top: 0;
@@ -53,11 +54,11 @@ export const Close = styled.button`
         background-color: #333;
     }
 
-    &:before {
+    &::before {
         transform: rotate(45deg);
     }
 
-    &:after {
+    &::after {
         transform: rotate(-45deg);
     }
 `;

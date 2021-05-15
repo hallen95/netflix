@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Fuse from 'fuse.js'
 import { SelectProfileContainer } from './Profiles'
 import { FooterContainer } from '../containers/Footer'
 import { FirebaseContext } from '../context/firebase'
-import { Card, Footer, Header, Loading } from '../components'
+import { Card, Header, Loading, Player } from '../components'
 import * as ROUTES from '../constants/routes'
 import logo from '../logo.svg'
 
@@ -27,6 +28,18 @@ export function BrowseContainer({ slides }) {
     useEffect(() => {
         setslideRows(slides[category]);
     }, [slides, category])
+    
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'],
+        })
+        const results = fuse.search(searchTerm).map(({ item }) => item)
+        if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0){
+            setslideRows(results) // si recibimos una coincidencia
+        }else {
+            setslideRows(slides[category])
+        }
+    }, [searchTerm])
+    
     return profile.displayName ? (
         <>
             {loading ? <Loading src={user.photoURL} />   
@@ -64,7 +77,7 @@ export function BrowseContainer({ slides }) {
             </Header.Frame>
 
             <Header.Feature>
-                <Header.FeatureCallOut>Watch Joker Ahorita</Header.FeatureCallOut>
+                <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
                 <Header.Text>
                 Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
                  City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
@@ -92,10 +105,10 @@ export function BrowseContainer({ slides }) {
                         ))}
                     </Card.Entities>
                     <Card.Feature category={category}>
-                        {/* <Player>
+                        <Player>
                             <Player.Button />
-                            <Player.Video src="/video/bunny.mp4" />
-                        </Player> */}
+                            <Player.Video src="/videos/bunny.mp4" />
+                        </Player>
                     </Card.Feature>
                 </Card>
             ))}
