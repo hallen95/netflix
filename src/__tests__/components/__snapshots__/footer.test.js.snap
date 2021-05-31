@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders the <Footer /> with populated data 1`] = `
+<div
+  class="footer__Container-sc-1kzmoke-0 eVDKzJ"
+>
+  <p
+    class="footer__Title-sc-1kzmoke-4 dZSKrM"
+  >
+     Question? Contact us
+  </p>
+  <div
+    class="footer__Break-sc-1kzmoke-6 YiCKL"
+  />
+  <div
+    class="footer__Row-sc-1kzmoke-2 gvVAam"
+  >
+    <div
+      class="footer__Column-sc-1kzmoke-1 hqAXEl"
+    >
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        FAQ
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Investor Relations
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Ways to watch
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Corporate Information
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Netflix Originals
+      </a>
+    </div>
+    <div
+      class="footer__Column-sc-1kzmoke-1 hqAXEl"
+    >
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Help center
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Jobs
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Terms of use
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Contact Us
+      </a>
+    </div>
+    <div
+      class="footer__Column-sc-1kzmoke-1 hqAXEl"
+    >
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Account
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Redeem gift cards
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Privacy
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Speed Test
+      </a>
+    </div>
+    <div
+      class="footer__Column-sc-1kzmoke-1 hqAXEl"
+    >
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Media center
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Buy gift cards
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Cookie preferences
+      </a>
+      <a
+        class="footer__Link-sc-1kzmoke-3 gpGATd"
+        href="#"
+      >
+        Legal notices
+      </a>
+    </div>
+  </div>
+  <div
+    class="footer__Break-sc-1kzmoke-6 YiCKL"
+  />
+  <p
+    class="footer__Text-sc-1kzmoke-5 jZetlx"
+  >
+    Netflix Argentina
+  </p>
+</div>
+`;
