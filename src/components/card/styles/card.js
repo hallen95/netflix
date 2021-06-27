@@ -26,7 +26,7 @@ export const Container = styled.div`
 
 export const Group = styled.div`
     display: flex;
-    flex-direction: ${({ flexDirection }) => flexDirection == 'row' ? 'row' : 'column'};
+    flex-direction: ${({ flexDirection }) => flexDirection === 'row' ? 'row' : 'column'};
     ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
     ${({ margin }) => margin && `margin: ${margin}`};
 
@@ -60,6 +60,7 @@ export const Text = styled.p`
 export const Entities = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
 `;
 
 export const Meta = styled.div`

@@ -6,7 +6,7 @@ import { FooterContainer } from '../containers/Footer'
 import { Form } from '../components'
 import * as ROUTES from '../constants/routes'
 
-export default function Signup() {
+export default function SignUp() {
     const history = useHistory();
     const { firebase } = useContext(FirebaseContext);
 

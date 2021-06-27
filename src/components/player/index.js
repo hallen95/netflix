@@ -8,7 +8,7 @@ export default function Player({ children, ...restProps }){
     const [ showPlayer, setShowPlayer ] = useState(false);
 
     return (
-        <PlayerContext.Provider value= {{ showPlayer, setShowPlayer }}>
+        <PlayerContext.Provider value={{ showPlayer, setShowPlayer }}>
             <Container {...restProps}>{children}</Container>
         </PlayerContext.Provider>
     )
@@ -35,7 +35,7 @@ Player.Button = function PlayerButton({ ...restProps }){
     const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
     return (
-        <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer )} {...restProps}>
+        <Button onClick={() => setShowPlayer((showPlayer)=> !showPlayer)} {...restProps}>
             Play
         </Button>
     );
