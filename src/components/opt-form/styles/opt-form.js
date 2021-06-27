@@ -63,7 +63,8 @@ export const Text = styled.p`
     @media(max-width: 600px) {
         font-size: 16px;
         line-height: 22px;
-    }`; 
+    }
+}`; 
 
 export const Break = styled.div`
     flex-basis: 100%;

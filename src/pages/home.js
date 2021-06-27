@@ -15,10 +15,10 @@ export default function Home() {
                 <OptForm>
                     <OptForm.Input placeholder="Email adress" />
                     <OptForm.Button>Try it now</OptForm.Button>
+                </OptForm>
                     <OptForm.Text>
                         Ready to watch? Enter your email to create or restart your membership
                     </OptForm.Text>
-                </OptForm>
             </Feature>
         </HeaderContainer>
         <JumbotronContainer />
